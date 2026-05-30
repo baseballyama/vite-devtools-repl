@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' ws://localhost:* http://localhost:*; img-src 'self' data:; font-src 'self' data:"
+    />
+    <title>repro: iconify / unocss CSP</title>
+  </head>
+  <body>
+    <h1>repro: DevTools UI fetches iconify / unocss assets at runtime</h1>
+    <p>
+      Open this page with the browser console open. The Vite DevTools dock will
+      appear (via <code>transformIndexHtml</code>, which works fine on plain
+      Vite). Toggle through dock panels and watch the console for CSP
+      violations against <code>api.iconify.design</code> (connect-src) and
+      <code>unocss.dev</code> (img-src).
+    </p>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
